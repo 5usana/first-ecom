@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterStyle = styled.footer`
@@ -13,16 +13,21 @@ const FooterStyle = styled.footer`
 	width: 100vw;
 	text-align: center;
 	background-color: #c8d8e4;
+	font-weight: 500;
+	text-decoration: none;
+	padding: 0 4px;
 `;
 
 function Footer() {
 	let currentyear = new Date().getFullYear();
 	return (
 		<FooterStyle>
-			<p className='footer-text'>{currentyear} Copyright ⓒ Susana Martins </p>
-			{/* <Link className='footer-text' to='/about'>
-				5usana
-			</Link> */}
+			<p className='footer-text'>
+				{currentyear} Copyright ⓒ
+				<Link className='footer-text' to='/CreatorProfile'>
+					Susana Martins
+				</Link>
+			</p>
 		</FooterStyle>
 	);
 }
