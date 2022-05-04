@@ -1,5 +1,6 @@
 import React from 'react';
 import susana from '../images/avatar-susana.png';
+import { Link } from 'react-router-dom';
 // import NavBar from './NavBar';
 import styled from 'styled-components';
 
@@ -31,10 +32,27 @@ const MyName = styled.a`
 	color: #222f65;
 `;
 
+const Nav = styled.div`
+	margin: 0 auto;
+	padding: 16px 24px;
+	height: 72px;
+	font-size: 1rem;
+	.nav-tag {
+		color: #222f65;
+		font-weight: 300;
+		text-decoration: none;
+	}
+`;
+
 function CreatorProfile() {
 	return (
 		<>
 			{/* <NavBar /> */}
+			<Nav>
+				<Link className='nav-tag' to='/'>
+					return to shop
+				</Link>
+			</Nav>
 			<HeaderOne>Hey, checkout my Github</HeaderOne>
 			<Section>
 				<MyAvatar>
