@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-function DisplayImage() {
+function Products() {
 	const [productList, setProductList] = useState([]);
 	// let API_KEY = '62c9fe58';
 
@@ -29,4 +29,4 @@ function DisplayImage() {
 	);
 }
 
-export default DisplayImage;
+export default Products;
