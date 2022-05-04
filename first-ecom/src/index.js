@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import CreatorProfile from './components/CreatorProfile';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ ReactDOM.render(
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<App />}></Route>
+				<Route path='/CreatorProfile' element={<CreatorProfile />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>,
