@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavContainer = styled.section`
@@ -10,7 +9,7 @@ const NavContainer = styled.section`
 	background-color: white;
 	border-bottom: 1px solid lightgrey;
 `;
-const HomeNav = styled.nav`
+const HomeNav = styled.div`
 	padding: 0px 250px 8px 50px;
     color: #2b6777;
 	height: 70px;
