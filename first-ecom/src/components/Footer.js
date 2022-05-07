@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterStyle = styled.footer`
-	position: fixed;
+	// position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;

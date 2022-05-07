@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const NavContainer = styled.section`
 	display: flex;
 	flex-direction: row;
+	// position: fixed;
 	border-bottom: 3px solid black;
-	flex-flow: row;
 `;
 const HomeNav = styled.nav`
 	padding: 8px 250px 0px 50px;

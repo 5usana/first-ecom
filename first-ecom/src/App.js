@@ -9,6 +9,7 @@ function App() {
 		<>
 			<GlobalStyle />
 			<NavBar />
+
 			<Products />
 			<Footer />
 		</>
