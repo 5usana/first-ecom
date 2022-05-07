@@ -7,12 +7,34 @@ const ProductListContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-	border: 5px solid red;
+	justify-content: space-evenly;
+	gap: 1.1em;
+	padding: 8em 0.5em 0em 0.5em;
+	// border: 5px solid red;
 `;
-
 const ProductCard = styled.div`
-	border: 3px solid green;
+	border: 2px solid white;
+	width: 18vw;
+`;
+const ProductImage = styled.img`
+	width: 19vw;
+	height: 50%;
+	object-fit: cover;
+	// border: 1px solid darkgrey;
+`;
+const ProductDetailsContainer = styled.div`
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+`;
+const TitleContainer = styled.div`
+	// border: 3px solid orange;
+	padding: 1em 0em 0em 0em;
+`;
+const PriceContainer = styled.div`
+	// border: 3px solid yellow;
+	font-weight: bold;
+	padding: 0.5em 0em 0em 0em;
 `;
 
 function Products() {
@@ -31,11 +53,13 @@ function Products() {
 		<ProductListContainer>
 			{data.map((product) => (
 				<ProductCard>
-					<div className='title'>{product.title}</div>
 					<Link to={`/products/${product.id}`}>
-						<img src={product.image} alt='product' />
-						<div className='price'> $ {product.price}</div>
+						<ProductImage src={product.image} alt='product' />
 					</Link>
+					<ProductDetailsContainer>
+						<TitleContainer>{product.title}</TitleContainer>
+						<PriceContainer> $ {product.price}</PriceContainer>
+					</ProductDetailsContainer>
 				</ProductCard>
 			))}
 		</ProductListContainer>

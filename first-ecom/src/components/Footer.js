@@ -13,7 +13,6 @@ const FooterStyle = styled.footer`
 	width: 100vw;
 	text-align: center;
 	background-color: #c8d8e4;
-	font-weight: 500;
 	text-decoration: none;
 	padding: 0 4px;
 `;
