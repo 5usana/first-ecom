@@ -2,15 +2,15 @@ import React from 'react';
 import { useFetch } from 'react-async';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import cart from '../images/cart-arrow-down-solid.svg';
 
 const ProductListContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	gap: 1.1em;
 	padding: 8em 0.5em 0em 0.5em;
-	// border: 5px solid red;
 `;
 const ProductCard = styled.div`
 	border: 2px solid white;
@@ -20,21 +20,33 @@ const ProductImage = styled.img`
 	width: 19vw;
 	height: 50%;
 	object-fit: cover;
-	// border: 1px solid darkgrey;
+`;
+const Test = styled.div`
+	display: flex-end;
+	align-items: flex-end;
+	align-content: end;
 `;
 const ProductDetailsContainer = styled.div`
-	margin-top: 10px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	align-self: flex-end;
+	align-items: flex-end;
+	justify-content: space-between;
+	font-size: 0.9rem;
+	margin-top: 10px;
+	padding: 0.2em 0em;
 `;
 const TitleContainer = styled.div`
-	// border: 3px solid orange;
 	padding: 1em 0em 0em 0em;
 `;
 const PriceContainer = styled.div`
-	// border: 3px solid yellow;
 	font-weight: bold;
 	padding: 0.5em 0em 0em 0em;
+	align-self: end;
+`;
+const CartIcon = styled.img`
+	width: 20px;
+	align-self: end;
 `;
 
 function Products() {
@@ -56,10 +68,15 @@ function Products() {
 					<Link to={`/products/${product.id}`}>
 						<ProductImage src={product.image} alt='product' />
 					</Link>
-					<ProductDetailsContainer>
+					<Test>
 						<TitleContainer>{product.title}</TitleContainer>
-						<PriceContainer> $ {product.price}</PriceContainer>
-					</ProductDetailsContainer>
+						<ProductDetailsContainer>
+							<PriceContainer> $ {product.price}</PriceContainer>
+							<Link to={`/cart`}>
+								<CartIcon src={cart} alt='cart' />
+							</Link>
+						</ProductDetailsContainer>
+					</Test>
 				</ProductCard>
 			))}
 		</ProductListContainer>

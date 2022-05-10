@@ -14,7 +14,7 @@ const Headline = styled.div`
 	justify-content: center;
 	text-align: center;
 	padding: 15px 20px 10px 20px;
-	background-color: #222324;
+	background-color: #808080;
 	font-size: 2.5vw;
 	color: white;
 	height: 3.5vw;
@@ -24,11 +24,10 @@ const HeroContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	font-size: 6rem;
-	bottom: 0;
 	height: 65vw;
 	width: 100vw;
-	text-align: center;
 	background-image: url(${heroPic});
 	background-size: cover;
 	color: white;
