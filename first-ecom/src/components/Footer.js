@@ -12,7 +12,7 @@ const FooterStyle = styled.footer`
 	height: 200px;
 	width: 100vw;
 	text-align: center;
-	background-color: #c8d8e4;
+	background-color: #e8d6c8;
 	text-decoration: none;
 	padding: 0 4px;
 `;

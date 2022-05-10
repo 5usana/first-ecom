@@ -6,14 +6,13 @@ const NavContainer = styled.section`
 	display: flex;
 	flex-direction: row;
 	width: 100vw;
-	background-color: white;
-	border-bottom: 1px solid lightgrey;
+	background-color: black;
 `;
 const HomeNav = styled.div`
 	padding: 0px 250px 8px 50px;
-    color: #2b6777;
+	color: white;
 	height: 70px;
-	font-size: 3rem;
+	font-size: 2.8rem;
 	font-family: 'Permanent Marker', cursive;
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
