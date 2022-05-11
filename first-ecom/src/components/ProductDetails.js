@@ -1,51 +1,111 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useFetch } from 'react-async';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import NavBar from './NavBar';
 import MyButton from '../styles/MyButton';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import cart from '../images/cart-arrow-down-solid.svg';
-// import { cart-arrow-down } from '@fortawesome/free-solid-svg-icons';
+import carticon from '../images/cart-arrow-down-solid.svg';
+import { CartContext } from '../contexts/CartContext';
+import NumericInput from 'react-numeric-input';
 
-// const element = <FontAwesomeIcon icon={cart - arrow - down} />;
-
+const DetailsCard = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 3em 1em;
+	border-bottom: 3em solid silver;
+`;
+const DetailsCardContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	// padding: 3em 1em;
+	// border-bottom: 3em solid silver;
+`;
 const HeaderOne = styled.h1`
-	padding: 1em;
+	padding: 0.5em 1em 0.5em 1em;
 	margin: 2em 0em;
 	border-top: 3px solid silver;
 	border-bottom: 3px solid silver;
 `;
 const DetailsContainer = styled.div`
-	padding: 3em 1em;
-	align-self: center;
-	border-bottom: 3em solid silver;
-`;
-const ProductImage = styled.img`
-	width: 40vw;
-	height: 50%;
-	object-fit: cover;
-	padding: 2em 1em;
-`;
-const ProductCard = styled.div`
-	border-bottom: 2px solid silver;
-	padding: 1em 1em;
-`;
-const DetailsCard = styled.div`
+	// justify-content: space-between;
 	background-color: #708f7c;
+	width: 60vw;
 	padding: 3em 1em;
 	color: white;
-	font-size: 1.8vw;
+	font-size: 1.2em;
 	padding: 1em 1em;
 `;
+const ProductImage = styled.img`
+	width: 25vw;
+	height: 50%;
+`;
+const HeaderThree = styled.h3`
+	border-bottom: 3px solid white;
+	padding: 0em 0em 0.3em 0em;
+	font-size: 1.5em;
+`;
+const CornerDetails = styled.div`
+	display: flex;
+	// flex-basis: auto;
+	// flex-flow: space-between;
+	// border: 3px solid white;
+	border-top: 3px solid white;
+`;
+const CornerDetailsText = styled.h3`
+	display: flex;
+	border: 4px solid orange;
+	display: row;
+	justify-content: space-around;
+	width: 60vw;
+	// padding: 3vw 23vw 0vw 1vw;
+	align-content: space-around;
+	align-items: last baseline;
+`;
+const ButtonContainer = styled.div`
+	// align-self: end;
+	border: 2px solid blue;
+	// padding: 0em 0em 0em 35em;
+`;
+
+const InputContainer = styled.div`
+	// align-self: end;
+	display: flex;
+	flex-direction: row;
+	width: 35vw;
+	justify-content: space-around;
+	border: 2px solid purple;
+	// padding: 0em 0em 0em 9em;
+`;
 const CartIcon = styled.img`
-	width: 40px;
-	margin: 0 auto;
-	margin-bottom: 4px;
-	text-align: center;
+	width: 25px;
+	// padding: 0.2em 0.2em 0em 0.1em;
 `;
 
 function ProductDetails() {
+	let quantity = 1;
+	const navigate = useNavigate();
+	const { setCart, cart } = useContext(CartContext);
+
+	// const id = 1
+	const addToCart = (product) => {
+		// if product already in the cart, update quantity
+		const existingProductIndex = cart.findIndex((p) => p.id === product.id);
+		if (existingProductIndex !== -1) {
+			const updatedCart = cart.map((p) => {
+				if (p.id === product.id) {
+					p.quantity += quantity;
+				}
+				return p;
+			});
+			setCart(updatedCart);
+		} else {
+			const productWithQuanity = { ...product, quantity };
+			setCart([...cart, productWithQuanity]);
+		}
+		navigate.push('/cart');
+	};
+
 	const { id } = useParams();
 
 	const { data, error } = useFetch(`https://fakestoreapi.com/products/${id}`, {
@@ -60,37 +120,52 @@ function ProductDetails() {
 	return (
 		<>
 			<NavBar />
-			<DetailsContainer>
-				<ProductCard>
-					<HeaderOne>{data.title}</HeaderOne>
+			<DetailsCard>
+				<HeaderOne>{data.title}</HeaderOne>
+				<DetailsCardContainer>
 					<ProductImage src={data.image} alt='product' />
-					<DetailsCard>
-						{/* <FontAwesomeIcon icon='fa-solid fa-cart-arrow-down' /> */}
+					<br></br>
+					<DetailsContainer>
 						<div>
 							{' '}
 							<h5>
 								{' '}
-								<h3>Category:</h3> {data.category}{' '}
+								<HeaderThree>Category:</HeaderThree> {data.category}{' '}
 							</h5>
 						</div>{' '}
 						<div>
 							{' '}
 							<h5>
 								{' '}
-								<h3>Description:</h3> {data.description}{' '}
+								<HeaderThree>Description:</HeaderThree> {data.description}{' '}
 							</h5>
 						</div>{' '}
 						<div>
 							{' '}
-							<h3> $ {data.price} </h3>{' '}
+							<CornerDetails>
+								<CornerDetailsText>
+									${data.price}
+									<InputContainer>
+										<h4>Quantity: </h4>
+										<NumericInput
+											className='form-control'
+											min={1}
+											max={50}
+											value={quantity}
+											onChange={(valueAsNumber) => (quantity = valueAsNumber)}
+										/>
+									</InputContainer>
+									<ButtonContainer>
+										<MyButton normal onClick={() => addToCart(data)}>
+											<CartIcon src={carticon} alt='cart' />
+										</MyButton>
+									</ButtonContainer>
+								</CornerDetailsText>{' '}
+							</CornerDetails>
 						</div>{' '}
-						<MyButton primary></MyButton>
-						<MyButton normal></MyButton>
-						{/* <FontAwesomeIcon icon='fa-solid fa-cart-arrow-down' /> */}
-						<CartIcon src={cart} alt='cart' />
-					</DetailsCard>
-				</ProductCard>
-			</DetailsContainer>
+					</DetailsContainer>
+				</DetailsCardContainer>
+			</DetailsCard>
 		</>
 	);
 }

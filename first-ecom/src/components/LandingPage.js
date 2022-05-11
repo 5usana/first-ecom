@@ -14,6 +14,7 @@ const Headline = styled.div`
 	justify-content: center;
 	text-align: center;
 	padding: 15px 20px 10px 20px;
+	// background-color: black;
 	background-color: #808080;
 	font-size: 2.5vw;
 	color: white;

@@ -9,8 +9,8 @@ const ProductListContainer = styled.div`
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	gap: 1.1em;
-	padding: 8em 0.5em 0em 0.5em;
+	gap: 2em;
+	padding: 8em 6em 0em 8em;
 `;
 const ProductCard = styled.div`
 	border: 2px solid white;
@@ -57,7 +57,7 @@ function Products() {
 
 	if (error) return error;
 
-	console.log(data);
+	// console.log(data);
 
 	if (!data) return null;
 
