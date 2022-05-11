@@ -45,6 +45,11 @@ const HeaderThree = styled.h3`
 	padding: 0em 0em 0.3em 0em;
 	font-size: 1.5em;
 `;
+const HeaderThreeHalf = styled.h3`
+	// border-bottom: 3px solid white;
+	padding: 0em 0em 0em 0em;
+	font-size: 1em;
+`;
 const CornerDetails = styled.div`
 	display: flex;
 	// flex-basis: auto;
@@ -54,29 +59,28 @@ const CornerDetails = styled.div`
 `;
 const CornerDetailsText = styled.h3`
 	display: flex;
-	border: 4px solid orange;
 	display: row;
 	justify-content: space-around;
 	width: 60vw;
-	// padding: 3vw 23vw 0vw 1vw;
 	align-content: space-around;
 	align-items: last baseline;
+	// padding: 3vw 23vw 0vw 1vw;
+	// border: 4px solid orange;
 `;
 const ButtonContainer = styled.div`
-	// align-self: end;
-	border: 2px solid blue;
+	// border: 2px solid blue;
 	// padding: 0em 0em 0em 35em;
 `;
 
-const InputContainer = styled.div`
-	// align-self: end;
-	display: flex;
-	flex-direction: row;
-	width: 35vw;
-	justify-content: space-around;
-	border: 2px solid purple;
-	// padding: 0em 0em 0em 9em;
-`;
+// const InputContainer = styled.div`
+// 	display: flex;
+// 	align-items: last baseline;
+// 	flex-direction: row;
+// 	width: 35vw;
+// 	justify-content: space-around;
+// 	// border: 2px solid purple;
+// 	// padding: 0em 0em 0em 9em;
+// `;
 const CartIcon = styled.img`
 	width: 25px;
 	// padding: 0.2em 0.2em 0em 0.1em;
@@ -145,16 +149,16 @@ function ProductDetails() {
 							<CornerDetails>
 								<CornerDetailsText>
 									${data.price}
-									<InputContainer>
-										<h4>Quantity: </h4>
-										<NumericInput
-											className='form-control'
-											min={1}
-											max={50}
-											value={quantity}
-											onChange={(valueAsNumber) => (quantity = valueAsNumber)}
-										/>
-									</InputContainer>
+									{/* <InputContainer> */}
+									<HeaderThreeHalf>Quantity: </HeaderThreeHalf>
+									<NumericInput
+										className='form-control'
+										min={1}
+										max={50}
+										value={quantity}
+										onChange={(valueAsNumber) => (quantity = valueAsNumber)}
+									/>
+									{/* </InputContainer> */}
 									<ButtonContainer>
 										<MyButton normal onClick={() => addToCart(data)}>
 											<CartIcon src={carticon} alt='cart' />

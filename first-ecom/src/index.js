@@ -15,7 +15,7 @@ ReactDOM.render(
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<App />}></Route>
-				<Route path='/creator-profile' element={<CreatorProfile />} />
+				<Route path='/about' element={<CreatorProfile />} />
 				<Route path='/products' element={<Products />} />
 				<Route path='/products/:id' element={<ProductDetails />} />
 				<Route path='/cart' element={<Cart />} />

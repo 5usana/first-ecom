@@ -1,6 +1,18 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+const CartPage = styled.div`
+	border: 5px solid blue;
+`;
+const TitleWrapper = styled.div`
+	border: 3px solid green;
+`;
+const Title = styled.h1`
+	font-size: 1.5em;
+	color: black;
+`;
 
 function Cart() {
 	const { cart, setCart } = useContext(CartContext);
@@ -23,8 +35,12 @@ function Cart() {
 
 	cart.map((p) => (totalItems += p.quantity));
 	const navigate = useNavigate();
+
 	return (
-		<>
+		<CartPage>
+			<TitleWrapper>
+				<Title>Cart</Title>
+			</TitleWrapper>
 			{cart.map((product) => (
 				<div>
 					<div>{product.title}</div>
@@ -38,7 +54,7 @@ function Cart() {
 			<h4>Total Price: ${totalPrice} </h4>
 			<button onClick={() => navigate.push('/products')}> Add Items</button>
 			<button onClick={() => navigate.push('/checkout')}> CheckOut </button>
-		</>
+		</CartPage>
 	);
 }
 
