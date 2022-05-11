@@ -1,19 +1,20 @@
 import React from 'react';
 import susana from '../images/avatar-susana.png';
 import { Link } from 'react-router-dom';
-// import NavBar from './NavBar';
 import styled from 'styled-components';
 
 const HeaderOne = styled.h1`
 	font-size: 2.5rem;
 	text-align: center;
 `;
-
+const HeaderFive = styled.h5`
+	font-size: 1rem;
+	text-align: center;
+`;
 const Section = styled.section`
 	display: flex;
 	flex-flow: row wrap;
 `;
-
 const MyAvatar = styled.figure`
 	width: 280px;
 	margin: 0 auto;
@@ -24,14 +25,13 @@ const MyAvatar = styled.figure`
 		width: 180px;
 	}
 `;
-
 const MyName = styled.a`
 	padding-top: 8px;
 	margin: 0 auto;
 	font-size: 2rem;
 	color: #222f65;
+	text-decoration: none;
 `;
-
 const Nav = styled.div`
 	margin: 0 auto;
 	padding: 16px 24px;
@@ -47,13 +47,13 @@ const Nav = styled.div`
 function CreatorProfile() {
 	return (
 		<>
-			{/* <NavBar /> */}
 			<Nav>
 				<Link className='nav-tag' to='/'>
 					return to shop
 				</Link>
 			</Nav>
-			<HeaderOne>Hey, checkout my Github</HeaderOne>
+			<HeaderOne>Hey, I'm Susana.</HeaderOne>
+			<HeaderFive> LinkedIn + Github below</HeaderFive>
 			<Section>
 				<MyAvatar>
 					<a href='https://www.linkedin.com/in/susanacmartins/' target='blank'>

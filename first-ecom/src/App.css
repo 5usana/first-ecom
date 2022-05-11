@@ -6,6 +6,17 @@
   height: 40vmin;
   pointer-events: none;
 }
+.form-control{
+  position: relative;
+  width: 3em;
+  padding: 1em 3em;
+  /* height: 1.8em; */
+  line-height: 1;
+  /* display: block; */
+  /* padding: 1em; */
+  /* margin: 20; */
+  /* border: .5px solid #eee; */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

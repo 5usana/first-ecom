@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterStyle = styled.footer`
-	position: fixed;
+	// position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -12,8 +12,7 @@ const FooterStyle = styled.footer`
 	height: 200px;
 	width: 100vw;
 	text-align: center;
-	background-color: #c8d8e4;
-	font-weight: 500;
+	background-color: #e8d6c8;
 	text-decoration: none;
 	padding: 0 4px;
 `;
@@ -24,7 +23,7 @@ function Footer() {
 		<FooterStyle>
 			<p className='footer-text'>
 				{currentyear} Copyright ⓒ
-				<Link className='footer-text' to='/CreatorProfile'>
+				<Link className='footer-text' to='/about'>
 					Susana Martins
 				</Link>
 			</p>

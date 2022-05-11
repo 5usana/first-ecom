@@ -5,13 +5,21 @@ import App from './App';
 import CreatorProfile from './components/CreatorProfile';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Products from './components/Products';
+import ProductDetails from './components/ProductDetails';
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<App />}></Route>
-				<Route path='/CreatorProfile' element={<CreatorProfile />} />
+				<Route path='/about' element={<CreatorProfile />} />
+				<Route path='/products' element={<Products />} />
+				<Route path='/products/:id' element={<ProductDetails />} />
+				<Route path='/cart' element={<Cart />} />
+				<Route path='/checkout' element={<Checkout />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>,
