@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 const CartPage = styled.div`
 	border: 5px solid blue;
@@ -19,12 +20,12 @@ function Cart() {
 	let totalItems = 0;
 
 	const deleteItem = (product) => {
-		console.log(cart);
+		// console.log(cart);
 		const updatedCart = cart.filter((p) => {
 			return p.id !== product.id;
 		});
 		setCart(updatedCart);
-		console.log(updatedCart);
+		// console.log(updatedCart);
 	};
 
 	const totalPrice = cart
@@ -38,6 +39,7 @@ function Cart() {
 
 	return (
 		<CartPage>
+			<NavBar />
 			<TitleWrapper>
 				<Title>Cart</Title>
 			</TitleWrapper>

@@ -23,7 +23,7 @@ function Footer() {
 		<FooterStyle>
 			<p className='footer-text'>
 				{currentyear} Copyright ⓒ
-				<Link className='footer-text' to='/CreatorProfile'>
+				<Link className='footer-text' to='/about'>
 					Susana Martins
 				</Link>
 			</p>

@@ -7,6 +7,10 @@ const HeaderOne = styled.h1`
 	font-size: 2.5rem;
 	text-align: center;
 `;
+const HeaderFive = styled.h5`
+	font-size: 1rem;
+	text-align: center;
+`;
 const Section = styled.section`
 	display: flex;
 	flex-flow: row wrap;
@@ -26,6 +30,7 @@ const MyName = styled.a`
 	margin: 0 auto;
 	font-size: 2rem;
 	color: #222f65;
+	text-decoration: none;
 `;
 const Nav = styled.div`
 	margin: 0 auto;
@@ -47,7 +52,8 @@ function CreatorProfile() {
 					return to shop
 				</Link>
 			</Nav>
-			<HeaderOne>Hey, checkout my Github</HeaderOne>
+			<HeaderOne>Hey, I'm Susana.</HeaderOne>
+			<HeaderFive> LinkedIn + Github below</HeaderFive>
 			<Section>
 				<MyAvatar>
 					<a href='https://www.linkedin.com/in/susanacmartins/' target='blank'>

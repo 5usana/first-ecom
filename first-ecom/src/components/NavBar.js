@@ -13,19 +13,31 @@ const NavContainer = styled.div`
 	background-color: black;
 `;
 const OptionsContainer = styled.div`
-	border: 2px solid red;
+	// border: 2px solid red;
 `;
 const Store = styled.div`
 	padding: 0px 250px 8px 50px;
 	color: white;
-	// height: 70px;
 	font-size: 3.2rem;
 	font-family: 'Permanent Marker', cursive;
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-</style>
-	border: 2px solid red;
+	@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+	</style>
+	// border: 2px solid red;
+	// height: 70px;
 `;
+// const HomeLinkContainer = styled.div`
+// 	margin: 0 auto;
+// 	// justify-content: flex-end;
+// 	// padding: 16px 24px;
+// 	// height: 72px;
+// 	font-size: 1rem;
+// 	.nav-tag {
+// 		color: white;
+// 		font-weight: 350;
+// 		text-decoration: none;
+// 	}
+// `;
 // const LinkContainer = styled.div`
 // 	border 2px solid red;
 // `;
@@ -48,6 +60,11 @@ function NavBar() {
 					</Link>
 				</LinkContainer> */}
 			</OptionsContainer>
+			{/* <HomeLinkContainer>
+				<Link className='nav-tag' to='/'>
+					return to shop
+				</Link>
+			</HomeLinkContainer> */}
 		</NavContainer>
 	);
 }
